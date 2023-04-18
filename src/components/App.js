@@ -57,8 +57,17 @@ function App() {
 
         }];
 
+    useEffect(() => {
+        async function anonymLogin() {
+            await logIn(Realm.Credentials.anonymous());
+        }
+
+        anonymLogin();
+    }, []);
+
     const realmLogin = async () => {
         try {
+            await logOut();
             await logIn(Realm.Credentials.emailPassword(email, password));
         } catch (err) {
             console.log(err);
