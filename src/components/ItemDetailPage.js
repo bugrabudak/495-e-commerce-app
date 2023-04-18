@@ -114,7 +114,7 @@ const ItemDetailPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { item } = location.state;
-    const { currentUser } = useRealmApp();
+    const { currentUser, logIn } = useRealmApp();
     const [dbChanged, setdbChanged] = useState(false);
     const [currentReviews, setCurrentReviews] = useState([]);
     const [currentRatings, setCurrentRatings] = useState([]);
@@ -131,6 +131,15 @@ const ItemDetailPage = () => {
 
         fetchReviewsandRatings()
     }, [dbChanged]);
+
+    useEffect(() => {
+        async function anonymLogin() {
+            await logIn(Realm.Credentials.anonymous());
+        }
+        if(!currentUser) {
+            anonymLogin();
+        }
+    }, [currentUser]);
     const giveRatingToItem = (value) => {
         setRating(value);
     }
