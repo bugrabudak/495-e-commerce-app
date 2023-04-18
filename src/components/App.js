@@ -61,9 +61,10 @@ function App() {
         async function anonymLogin() {
             await logIn(Realm.Credentials.anonymous());
         }
-
-        anonymLogin();
-    }, []);
+        if(!currentUser) {
+            anonymLogin();
+        }
+    }, [currentUser]);
 
     const realmLogin = async () => {
         try {
