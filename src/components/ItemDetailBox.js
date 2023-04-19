@@ -39,7 +39,7 @@ const ItemDetailBox = ({item}) => {
     const ItemDetails = {
         'Type': item.type,
         'Description': item.description,
-        ...(item.color && { 'Color': item.color }),
+        ...(item.colour && { 'Colour': item.colour }),
         ...(item.size && { 'Size': item.size }),
         ...(item.spec && { 'Spec': item.spec })
     };
