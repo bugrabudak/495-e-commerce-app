@@ -94,7 +94,7 @@ const ItemCard = ({ item }) => {
 
     return (
         <ScItemCard onClick={handleGoToDetailPage}>
-            <div className="item-image">{item.url &&  <img src={item.url} alt="itemImage" /> }</div>
+            <div className="item-image">{item.imageURL &&  <img src={item.imageURL} alt="itemImage" /> }</div>
             <div className="item-info">
                 <div className="item-info-name">
                     <span className="item-info-name-itemName">{item.name}</span>

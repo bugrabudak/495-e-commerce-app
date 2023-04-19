@@ -8,6 +8,7 @@ const ScReviewTable = styled.table`
   border-collapse: collapse;
   table-layout: fixed;
   color: #09804C;
+  text-align: center;
 
   .item-activity-title {
     width: 100%;
@@ -19,7 +20,8 @@ const ScReviewTable = styled.table`
     width: 100%;
     &-item {
       width: 25%;
-      height: 40px;
+      height: 50px;
+      align-content: center;
       text-align: center;
       font-size: 16px;
       padding: 5px;

@@ -19,7 +19,7 @@ const ScItemDetailImage = styled.div`
 const ItemDetailImage = ({item}) => {
     return (
         <ScItemDetailImage>
-            {item.url && <img className="item-detail-image" src={item.url} alt="itemImage" />}
+            {item.imageURL && <img className="item-detail-image" src={item.imageURL} alt="itemImage" />}
         </ScItemDetailImage>
     );
 };

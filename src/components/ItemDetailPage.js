@@ -27,7 +27,7 @@ const ScItemDetailPage = styled.div`
   }
 
   .item-summary {
-    width: calc(40% - 10px);
+    width: calc(30% - 10px);
     margin-right: 10px;
     @media screen and (max-width: 768px) {
       width: 100%;
@@ -168,7 +168,7 @@ const ItemDetailPage = () => {
         setdbChanged(true);
     }
     function getSum(r1, r2) {
-        return r1 + r2.rating;
+        return parseInt(r1) + parseInt(r2.rating);
     }
     function checkUserRating(rating) {
         return rating.userID === currentUser.id;
@@ -203,7 +203,7 @@ const ItemDetailPage = () => {
                         <p className="itemTitle"> Seller: {item.seller}</p>
                     </div>
                     <p> Price: { item.price} $</p>
-                    <p> Average Rating: { currentRatings.length ? currentRatings.reduce(getSum,0) / currentRatings.length
+                    <p> Average Rating: { currentRatings.length ? (currentRatings.reduce(getSum,0) / currentRatings.length).toFixed(2)
                         : "Not Rated"} </p>
                     { currentUser && currentUser.providerType !== 'anon-user' &&
                         <p> Your Rating: { currentRatings.find(checkUserRating)?.rating } </p>}
@@ -214,7 +214,7 @@ const ItemDetailPage = () => {
                         <div className="item-review">
                             Click to rate:
                             <Rating
-                                precision={0.5}
+                                precision={1}
                                 onChange={e => {
                                     giveRatingToItem(e.target.value);
                                 }}
